@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rcbank/home_page.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:rcbank/main_page.dart';
 import 'firebase_options.dart';
 
 void main() async{
@@ -23,7 +25,25 @@ class MainApp extends StatelessWidget {
           seedColor: Colors.blue,
         ),
       ),
-      home: const HomePage(),
+      home: const PageRouter(),
+    );
+  }
+}
+
+class PageRouter extends StatelessWidget{
+  const PageRouter({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<User?>(
+      stream: FirebaseAuth.instance.userChanges(),
+      builder: (context, snapshot){
+        if (snapshot.hasData){
+          return const MainPage();
+        }else{
+          return const HomePage();
+        }
+      },
     );
   }
 }

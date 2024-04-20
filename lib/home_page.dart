@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rcbank/validationScreens/register_page.dart';
+import 'package:rcbank/authentication/login_page.dart';
+import 'package:rcbank/authentication/register_page.dart';
 
 class HomePage extends StatelessWidget{
   const HomePage({super.key});
@@ -53,7 +54,7 @@ class HomePage extends StatelessWidget{
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (BuildContext context) => RegisterPage()),
+                            builder: (BuildContext context) => const RegisterPage()),
                         );
                       },
                     ),
@@ -72,7 +73,11 @@ class HomePage extends StatelessWidget{
                       ),
                       child: Text('Entrar', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600, color: Theme.of(context).colorScheme.onPrimary)),
                       onPressed: (){
-
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (BuildContext context) => const LoginPage()),
+                        );
                       },
                     ),
                   ),

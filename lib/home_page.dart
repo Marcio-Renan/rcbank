@@ -9,6 +9,7 @@ class HomePage extends StatelessWidget{
   Widget build(BuildContext context) {
     
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         constraints: const BoxConstraints.expand(),
         decoration: const BoxDecoration(

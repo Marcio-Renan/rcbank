@@ -17,8 +17,7 @@ class AuthenticationService {
 
       if (e.code == "invalid-email") return "E-mail inválido!";
 
-      if (e.code == "weak-password")
-        return "Senha fraca, tente usar outra senha.";
+      if (e.code == "weak-password") return "Senha fraca, tente usar outra senha.";
 
       return e.code;
     }

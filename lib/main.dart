@@ -46,7 +46,7 @@ class PageRouter extends StatelessWidget {
       stream: FirebaseAuth.instance.userChanges(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return const MainPage();
+          return MainPage(user: snapshot.data!);
         } else {
           return const HomePage();
         }
